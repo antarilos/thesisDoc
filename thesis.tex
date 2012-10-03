@@ -1,0 +1,116 @@
+\documentclass[a4paper,11pt,openany]{report}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage [utf8]{inputenc}
+\usepackage{url}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{subfig}
+\usepackage{pifont}
+
+
+
+
+
+\usepackage[table]{xcolor}
+
+\title{Crosscompilation of the open source web browser engine WebKit for the ARMv7 microcontrollers family}
+\author{Antonio Arias Losada}
+\date{1st October 2012}
+\begin{document}
+\maketitle
+\tableofcontents
+\listoffigures
+
+
+\chapter{Introduction}
+This document resumes the work carried out during the Free Software Master Practicum developed by Antonio Arias, in 2012. This Master is taught by Igalia and Rey Juan Carlos University.
+
+\chapter{Description of the practicum}
+
+\section{About the author}
+The author of this Master Thesis is Antonio Arias Losada, student of the Free Software Master, in the 2012 edition.
+Antonio is Telecommunication Engineer by the Vigo University in 2006. He has experience in programming in several general purpose languages, mainly in Java, working from 2005 to ending of 2006 developing phone applications. From 2007 to 2009 he worked as Embedded Engineer in the automotive sector. From 2009 until now he has been working in the design, development and management of embedded devices and systems in the medical sector.
+
+\section{About the tutor}
+The tutor is V\'ictor Manuel J\'aquez Leal, 
+
+\section{The hosting enterprise}
+  
+\section{Practicum description}
+This practicum was focused in the crosscompilation of the open source web browser engine WebKit to be used in a ARMv7 based system, like most of the embedded devices availables in the market. 
+
+\section{Practicum planning and work environment}
+Just after the main goals of the Practicum work were described, the planning calendar was stablished, trying to distribute the work in the available time until the ending of the Practicum period, and having in mind the stimated time that were going to be dedicated.
+This process defined the following calendar, based on milestones and periodic meetings to keep track of the work progress:
+
+\begin{tabular}{|c|c|c|c|}
+\hline 
+Week & Month & Task & Meeting \\ 
+\hline 
+w20 & May &  &  \\ 
+\hline 
+w21 &  & Desktop WebKit compilation & Meeting (24/05/2012) \\ 
+\hline 
+w22 & Jun &  &  \\ 
+\hline 
+w23 &  &  &  \\ 
+\hline 
+w24 &  &  &  \\ 
+\hline 
+w25 &  &  &  \\ 
+\hline 
+w26 &  &  &  \\ 
+\hline 
+w27 & Jul & Yocto environment & Meeting (05/07/2012) \\ 
+\hline 
+w28 &  &  &  \\ 
+\hline 
+w29 &  &  &  \\ 
+\hline 
+w30 &  &  &  \\ 
+\hline 
+w31 & Aug & Run generated image in QEMU & Meeting (02/08/2012) \\ 
+\hline 
+w32 &  &  &  \\ 
+\hline 
+w33 &  &  &  \\ 
+\hline 
+w34 &  &  &  \\ 
+\hline 
+w35 & Sep & \parbox[t]{5cm}{WebKit compilation in Yocto and running it in QEMU} & Meeting (30/08/2012) \\ 
+\hline 
+w36 &  &  &  \\ 
+\hline 
+w37 &  &  &  \\ 
+\hline 
+w38 &  & Report &  \\ 
+\hline 
+w39 &  & Report & Meeting (27/09/2012) \\ 
+\hline 
+\end{tabular} 
+
+The work was planned to be done at home, having a weekly report from the author to the tutor, in order to keep him informed about the progress and problems. It was also planned periodic phone conferences for a deeper revision of the work.
+
+The main goal of the practicum work was described to be able to run an emulated environment using QEMU, which makes possible to make all the work only with a personal computer, without any special extra needs. Otherwise, it was stablished, as an extra objetive just the main goal was reached quite early, running the generated image in a real target like an evaluation board of a ARMv7 microcontroller.
+
+\chapter{Work plan}
+
+\section{Objectives}
+
+\section{Motivation}
+
+\section{Methodology}
+
+\section{Workplan}
+
+
+
+\chapter{Results}
+
+
+\chapter{Personal evaluation}
+
+
+
+\end{document}
