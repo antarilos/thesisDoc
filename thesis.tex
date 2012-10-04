@@ -24,7 +24,13 @@
 
 
 \chapter{Introduction}
-This document resumes the work carried out during the Free Software Master Practicum developed by Antonio Arias, in 2012. This Master is taught by Igalia and Rey Juan Carlos University.
+This document resumes the work carried out during the Free Software Master Practicum developed by Antonio Arias, in 2012. This Master is taught by Igalia and Rey Juan Carlos University. ******
+
+****** Speech about Yocto project ******
+
+****** Speech about QEMU ******
+
+****** Speech about ARMv7 ******
 
 \chapter{Description of the practicum}
 
@@ -33,14 +39,59 @@ The author of this Master Thesis is Antonio Arias Losada, student of the Free So
 Antonio is Telecommunication Engineer by the Vigo University in 2006. He has experience in programming in several general purpose languages, mainly in Java, working from 2005 to ending of 2006 developing phone applications. From 2007 to 2009 he worked as Embedded Engineer in the automotive sector. From 2009 until now he has been working in the design, development and management of embedded devices and systems in the medical sector.
 
 \section{About the tutor}
-The tutor is V\'ictor Manuel J\'aquez Leal, 
+
 
 \section{The hosting enterprise}
   
 \section{Practicum description}
+WebKit is one of the more complete and versatile web browser engines, with a high level of standard compatibility, used in some of the more important web browser applications, and huge number of embedded devices. This becomes WebKit in an very important piece of code in the nowadays world, where the web applications are becoming a key point in the software ecosystem.
+
 This practicum was focused in the crosscompilation of the open source web browser engine WebKit to be used in a ARMv7 based system, like most of the embedded devices availables in the market. 
 
 \section{Practicum planning and work environment}
+Usually this practicum work used to be done during the summer time, mainly in July and August. The author of the practicum has a full time job, which makes impossible to dedicate the needed time to the practicum work only on summer. Trying to solve this problem this work was started earlier. So it was planned in short working days of 3 hours each, from Monday to Friday, starting on 14th of May and ending on 30th of September. This way it should be spent about 300 hours on practicum work.
+
+The work was planned to be done at home, having a weekly report by email from the author to the tutor, in order to keep him informed about the progress and problems. It was also planned periodic phone conferences for a deeper revision of the work.
+
+The author kept a log file with all the information and steps he gathered during his work progress. This notes allow him to keep a track of his advances in the work, and a history view of the work.
+
+The main goal of the practicum work was described to be able to run an emulated environment using QEMU, which makes possible to make all the work only with a personal computer, without any special extra needs.
+
+Otherwise, it was stablished, as an extra objetive just the main goal was reached quite early, running the generated image in a real target like an evaluation board of a ARMv7 microcontroller.
+
+This practicum work involves the usage of the WebKit web browser engine, focused in its compilation, getting and managing its dependencies. But most of the work is centred on Yocto Project, learning its architecture, and how to use it.
+
+\chapter{Work plan}
+
+\section{Objectives}
+The main objective of the Practicum is getting a crosscompiled Linux image, ready to run a WebKit based browser, for an ARMv7 architecture microcontroller. This was planned to be got with some milestones:
+
+\begin{itemize}
+\item Compiling WebKit for x86 or amd64 architecture, getting a functional WebKit demo web browser.
+\item Prepare Yocto environment.
+\item Create a Yocto image and run it using QEMU.
+\item Create a Yocto with WebKit, getting a functional WebKit demo web broser for ARMv7 architecture, and run it using QEMU.
+\end{itemize}
+
+As an extra objective, it was planned getting a patch to be sent to the meta-browser Yocto layer. ******
+
+\section{Motivation}
+
+\section{Methodology}
+The work in this practicum project was planed to be done in consecutive iterations, getting step by step the main goal fo the project.
+
+The first step is getting the WekKit environment compiled for a personal computer target, learning how to compile this web browser engine, with its web browser example, taking note of the needed dependencies. This should set the basis for the future crosscompilation.
+
+When the first step is done, the next one consists in getting a Yocto environment ready. This task consist in getting the software environment install and ready to create Linux images for different architectures, and also in investigating the Yocto Project documentation, learning how the environment is used to create the images.
+
+With the Yocto environment ready, the next task is creating an ARMv7 image, based on the default ones included in the Yocto Project. Once this image is created, it should be runnable using QEMU emulator.
+
+Finally, it should be prepared an image with a WebKit environment compiled, satisfying all its dependencies, running this image using QEMU as in the previous step.
+
+The recipes are going to be based on meta-browser. ******
+
+
+\section{Workplan}
 Just after the main goals of the Practicum work were described, the planning calendar was stablished, trying to distribute the work in the available time until the ending of the Practicum period, and having in mind the stimated time that were going to be dedicated.
 This process defined the following calendar, based on milestones and periodic meetings to keep track of the work progress:
 
@@ -89,20 +140,6 @@ w38 &  & Report &  \\
 w39 &  & Report & Meeting (27/09/2012) \\ 
 \hline 
 \end{tabular} 
-
-The work was planned to be done at home, having a weekly report from the author to the tutor, in order to keep him informed about the progress and problems. It was also planned periodic phone conferences for a deeper revision of the work.
-
-The main goal of the practicum work was described to be able to run an emulated environment using QEMU, which makes possible to make all the work only with a personal computer, without any special extra needs. Otherwise, it was stablished, as an extra objetive just the main goal was reached quite early, running the generated image in a real target like an evaluation board of a ARMv7 microcontroller.
-
-\chapter{Work plan}
-
-\section{Objectives}
-
-\section{Motivation}
-
-\section{Methodology}
-
-\section{Workplan}
 
 
 
