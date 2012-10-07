@@ -14,7 +14,7 @@
 
 \usepackage[table]{xcolor}
 
-\title{Crosscompilation of the open source web browser engine WebKit for the ARMv7 microcontrollers family}
+\title{Crosscompilation of the open source web browser engine WebKit for the ARMv7 processors family}
 \author{Antonio Arias Losada}
 \date{1st October 2012}
 \begin{document}
@@ -24,13 +24,32 @@
 
 
 \chapter{Introduction}
-This document resumes the work carried out during the Free Software Master Practicum developed by Antonio Arias, in 2012. This Master is taught by Igalia and Rey Juan Carlos University. ******
+This document resumes the work carried out during the Free Software Master Practicum developed by Antonio Arias, in 2012. This Master is taught by Igalia and Rey Juan Carlos University.
 
-****** Speech about Yocto project ******
+In this Practicum project were used some technologies related with embedded environments, as processor families, crosscompilation toolchains and processor emulation software.
 
-****** Speech about QEMU ******
+\section{Yocto project}
+Traditionally the Linux distribution porting to different architectures, specifically to embedded systems, used to be a hard task with a lot of custom work related with the low level hardware layer adaptation, hardware abstraction layer (HAL).
 
-****** Speech about ARMv7 ******
+In order to try to manage this tasks in a more simple way was created the project OpenEmbedded. This was  the merge of the projects OpenZaurus with some contributions from projects like Faliar Linux and OpenSIMpad, getting a common codebase, from which any of the original projects could be built.
+
+\section{QEMU}
+QEMU (Quick Emulator) is an open source software capable of emulate or virtualize a bunch different processor families, including most of the more common architectures in embedded systems, like PowerPC, MIPS, or ARM. It also can emulate common PC arquitectures.
+
+As an emulator it uses dynamic binary translation, which consists in the translation of the instruction sets, from the ones of the emulated architecuture into code undestandable by the host device. This emulation technique can achieve a reasonable execution speed, getting a easy scalable solution to emulate new architectures.
+
+It can work in two different modes, emulation or virtualization. When it is used as an emulator, it can run operating systems or any other software built to an architecture different from the host machine one.
+
+When it is used to virtualize a different machine, it can achieve a performance close to the native one, executing the guest code directly on the host processor. The virtualization is done with the support of the Xen hypervisor or using the KVM kernel module in Linux. The targets that can be virtualized are x86, PowerPC and S390 processors.
+
+QEMU is released under GPL v2 license.
+
+\section{ARMv7}
+The ARM (Advanced RISC Machine) is a processor architecture of 32 bits. It is one of the most spread processors architectures in embedded systems, due to its simplicity and low power consumption. Its growth is supported by the licensing policy, which makes possible that a large number of different manufacturers can implement its solution based on this architecture, getting a huge number of developers specialized in this architecture.
+
+The ARMv7 processor core defined the base instruction set more used in the nowadays ARM processor implementations.
+
+With the ARMv7 family also appeared some architecture extensions like Thumb, which creates a 16 bits sub instruction set to reduce the code size of the more common software parts, or Jazelle, responsible of Java bytecode native execution.
 
 \chapter{Description of the practicum}
 
@@ -57,14 +76,14 @@ The author kept a log file with all the information and steps he gathered during
 
 The main goal of the practicum work was described to be able to run an emulated environment using QEMU, which makes possible to make all the work only with a personal computer, without any special extra needs.
 
-Otherwise, it was stablished, as an extra objetive just the main goal was reached quite early, running the generated image in a real target like an evaluation board of a ARMv7 microcontroller.
+Otherwise, it was stablished, as an extra objetive just the main goal was reached quite early, running the generated image in a real target like an evaluation board of a ARMv7 processor.
 
 This practicum work involves the usage of the WebKit web browser engine, focused in its compilation, getting and managing its dependencies. But most of the work is centred on Yocto Project, learning its architecture, and how to use it.
 
 \chapter{Work plan}
 
 \section{Objectives}
-The main objective of the Practicum is getting a crosscompiled Linux image, ready to run a WebKit based browser, for an ARMv7 architecture microcontroller. This was planned to be got with some milestones:
+The main objective of the Practicum is getting a crosscompiled Linux image, ready to run a WebKit based browser, for an ARMv7 architecture processor. This was planned to be got with some milestones:
 
 \begin{itemize}
 \item Compiling WebKit for x86 or amd64 architecture, getting a functional WebKit demo web browser.
