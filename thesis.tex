@@ -24,7 +24,7 @@
 
 
 \chapter{Introduction}
-This document resumes the work carried out during the Free Software Master Practicum developed by Antonio Arias, in 2012. This Master is taught by Igalia and Rey Juan Carlos University.
+This document resumes the work carried out during the Free Software Master\cite{master} Practicum developed by Antonio Arias, in 2012. This Master is taught by Igalia and Rey Juan Carlos University.
 
 In this Practicum project were used some technologies related with embedded environments, as processor families, crosscompilation toolchains and processor emulation software.
 
@@ -34,7 +34,7 @@ Traditionally the Linux distribution porting to different architectures, specifi
 In order to try to manage this tasks in a more simple way was created the project OpenEmbedded. This was  the merge of the projects OpenZaurus with some contributions from projects like Faliar Linux and OpenSIMpad, getting a common codebase, from which any of the original projects could be built.
 
 \section{QEMU}
-QEMU (Quick Emulator) is an open source software capable of emulate or virtualize a bunch different processor families, including most of the more common architectures in embedded systems, like PowerPC, MIPS, or ARM. It also can emulate common PC arquitectures.
+QEMU (Quick Emulator)\cite{qemu} is an open source software capable of emulate or virtualize a bunch different processor families, including most of the more common architectures in embedded systems, like PowerPC, MIPS, or ARM. It also can emulate common PC arquitectures.
 
 As an emulator it uses dynamic binary translation, which consists in the translation of the instruction sets, from the ones of the emulated architecuture into code undestandable by the host device. This emulation technique can achieve a reasonable execution speed, getting a easy scalable solution to emulate new architectures.
 
@@ -45,16 +45,18 @@ When it is used to virtualize a different machine, it can achieve a performance 
 QEMU is released under GPL v2 license.
 
 \section{ARMv7}
-The ARM (Advanced RISC Machine) is a processor architecture of 32 bits. It is one of the most spread processors architectures in embedded systems, due to its simplicity and low power consumption. Its growth is supported by the licensing policy, which makes possible that a large number of different manufacturers can implement its solution based on this architecture, getting a huge number of developers specialized in this architecture.
+The ARM (Advanced RISC Machine)\cite{arm} is a processor architecture of 32 bits. It is one of the most spread processors architectures in embedded systems, due to its simplicity and low power consumption. Its growth is supported by the licensing policy, which makes possible that a large number of different manufacturers can implement its solution based on this architecture, getting a huge number of developers specialized in this architecture.
 
 The ARMv7 processor core defined the base instruction set more used in the nowadays ARM processor implementations.
 
 With the ARMv7 family also appeared some architecture extensions like Thumb, which creates a 16 bits sub instruction set to reduce the code size of the more common software parts, or Jazelle, responsible of Java bytecode native execution.
 
 \section{WebKit}
-WebKit is an open source web browser engine, used as the basis for powerful web browsers like Epiphany, Safari or Google Chrome.
+WebKit\cite{webkit} is an open source web browser engine, used as the basis for powerful web browsers like Epiphany, Safari or Google Chrome.
 
 Its development was started in 1998, as part of the KDE project, under the name of KHTML with the JavaScript engine KJS. Based on this projects, Apple announced in 2002 its forks called WebCore and JavaScriptCore, and they released in 2003 their Safari web browser firt time based in this new engine.
+
+WebKit2 ******
 
 \chapter{Description of the practicum}
 
@@ -97,7 +99,7 @@ The main objective of the Practicum is getting a crosscompiled Linux image, read
 \item Create a Yocto with WebKit, getting a functional WebKit demo web broser for ARMv7 architecture, and run it using QEMU.
 \end{itemize}
 
-As an extra objective, it was planned getting a patch to be sent to the meta-browser Yocto layer. ******
+As a guide to support the creation of the Yocto image with a WebKit browser in it, it was planned to use the meta-browser\cite{meta-browser} layer, and as an extra objective, it was planned getting a patch to be sent to this Yocto layer project.
 
 \section{Motivation}
 The HTML5 improvements, which increases the web development capabilities to build full applications becomes more important the web browser role.
@@ -177,6 +179,32 @@ w39 &  & Report & Meeting (27/09/2012) \\
 
 \chapter{Personal evaluation}
 
+\begin{thebibliography}{ZZ}
 
+\bibitem{master}
+Free Software Master\\
+\url{http://www.mastersoftwarelibre.com/}
+
+\bibitem{yocto}
+Yocto Project\\
+\url{http://www.yoctoproject.org/}
+
+\bibitem{qemu}
+QEMU\\
+\url{http://www.qemu.org/}
+
+\bibitem{arm}
+ARM\\
+\url{http://www.arm.com/}
+
+\bibitem{webkit}
+WebKit\\
+\url{http://www.webkit.org/}
+
+\bibitem{meta-browser}
+meta-browser: OpenEmbedded/Yocto BSP layer for Web Browsers\\
+\url{https://github.com/OSSystems/meta-browser}
+
+\end{thebibliography}
 
 \end{document}
