@@ -7,7 +7,6 @@
 \usepackage{enumerate}
 \usepackage{subfig}
 \usepackage{pifont}
-
 \usepackage{tabularx}
 
 
@@ -173,7 +172,12 @@ w39 &  & 5. Report & Meeting (27/09/2012) \\
 \hline \end{tabularx}
 
 \chapter{Results}
+The work was started as it was expected and planned. The 3 first milestones were got sooner than they were in the initial workplan.
 
+The task 1 was done just in time. It consisted of getting the WebKit code, reading the building WebKitGTK+\cite{build webkitgtk+} documentation, and compiling it.
+For the first time it was tried to download the WebKit code using its official repository based on SVN, but it was so hard, because there is a lot of code to download and the repository checkout failed all the times it was tried. Then it was done cloning the git repository of WebKit\cite{git webkit}, which took about 3 hours to be done, but it worked on the first time.
+While the repository was been cloned, the documentation reading was done, and this helps saving some time.
+The compilation process was done using a chroot\cite{chroot} environment, been helped with the debootstrap\cite{debootstrap} tool, configuring a sandbox with a fully operational Ubuntu 11.10 operating system, avoiding dirting the base system with the tests.
 
 \chapter{Personal evaluation}
 The work done in this Practicum project was very helpful for the author for his learning about the usage of the crosscompiling tools, and the porting of some pieces of code to embedded platforms.
@@ -220,9 +224,25 @@ ARM\\
 WebKit\\
 \url{http://www.webkit.org/}
 
+\bibitem{build webkitgtk+}
+Building WebKitGTK+\\
+\url{http://trac.webkit.org/wiki/BuildingGtk/}
+
+\bibitem{git webkit}
+Tips and Tricks for using Git with WebKit\\
+\url{http://trac.webkit.org/wiki/UsingGitWithWebKit/}
+
 \bibitem{meta-browser}
 meta-browser: OpenEmbedded/Yocto BSP layer for Web Browsers\\
 \url{https://github.com/OSSystems/meta-browser}
+
+\bibitem{chroot}
+chroot\\
+\url{http://www.kernel.org/doc/man-pages/online/pages/man2/chroot.2.html}
+
+\bibitem{debootstrap}
+debootstrap\\
+\url{http://wiki.debian.org/Debootstrap/}
 
 \end{thebibliography}
 
