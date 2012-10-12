@@ -212,7 +212,14 @@ $ ./Tools/Scripts/run-launcher --gtk
 \end{lstlisting}
 }
 
-This runs a simple web browser example based on the just compiled WebKit engine.
+This runs a simple web browser example based on the compiled WebKit engine, that could be considered as the task 1 goal achieved in the week 22, one later than planned.
+
+The \textbf{task 2} was started on time, in the week 22, been run on pararell with the task 1 ending. It was formed by the Yocto Project documentation reading, and the environment preparation.
+The environment preparation was made following the Yocto project quick start guide\cite{yocto quick start}. This guide states the Ubuntu, Fedora, openSUSE and CentOS distributions, in the previous version to the last one, as the tested ones. But for the first test it was tried to deploy it using the Debian chroot environment previously used in the task 1, but it failed. After some trials to solve the problems, a new chroot environoment based on a Ubuntu 11.10 distribution was created, and the Yocto toolchain was tested successfully in this new sandbox. The task was ended in the week 24, before than expected in the initial planning.
+
+The \textbf{task 3} started in the week 24, about the creation of an image and running it using QEMU. It was selected the \verb#core-image-sato# Yocto demo image to get this done. Two test were done, one with a x86 target and the other with an ARM target. This was done in the week 25. While this compilations are done, some investigations about who creating custom recipes were done, just to advance in the next task work.
+
+In the week 26 a problem about the work done until that moment was discovered. The problem was about the specific ARM target that was been used. The ARM target the image was compiled to was ARMv5, and not ARMv7 as it was defined in the Practicum objectives.
 
 \chapter{Personal evaluation}
 The work done in this Practicum project was very helpful for the author for his learning about the usage of the crosscompiling tools, and the porting of some pieces of code to embedded platforms.
@@ -248,6 +255,10 @@ Igalia\\
 \bibitem{yocto}
 Yocto Project\\
 \url{http://www.yoctoproject.org/}
+
+\bibitem{yocto quick start}
+Yocto Project Quick Start Guide\\
+\url{http://www.yoctoproject.org/docs/current/yocto-project-qs/yocto-project-qs.html}
 
 \bibitem{qemu}
 QEMU\\
