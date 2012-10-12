@@ -8,7 +8,7 @@
 \usepackage{subfig}
 \usepackage{pifont}
 \usepackage{tabularx}
-
+\usepackage{listings}
 
 
 
@@ -172,12 +172,47 @@ w39 &  & 5. Report & Meeting (27/09/2012) \\
 \hline \end{tabularx}
 
 \chapter{Results}
-The work was started as it was expected and planned. The 3 first milestones were got sooner than they were in the initial workplan.
+The work was started as it was expected and planned.
 
-The task 1 was done just in time. It consisted of getting the WebKit code, reading the building WebKitGTK+\cite{build webkitgtk+} documentation, and compiling it.
-For the first time it was tried to download the WebKit code using its official repository based on SVN, but it was so hard, because there is a lot of code to download and the repository checkout failed all the times it was tried. Then it was done cloning the git repository of WebKit\cite{git webkit}, which took about 3 hours to be done, but it worked on the first time.
+The \textbf{task 1} was done with a delay of a week over the planning. It consisted of getting the WebKit code, reading the building WebKitGTK+\cite{build webkitgtk+} documentation, and compiling it.
+For the first time it was tried to download the WebKit code using its official SVN repository, but it was so hard, because there is a lot of code to download and the repository checkout failed all the times it was tried. Then it was done cloning the git repository of WebKit\cite{git webkit}, which took about 3 hours to be done, but it worked on the first time.
 While the repository was been cloned, the documentation reading was done, and this helps saving some time.
-The compilation process was done using a chroot\cite{chroot} environment, been helped with the debootstrap\cite{debootstrap} tool, configuring a sandbox with a fully operational Ubuntu 11.10 operating system, avoiding dirting the base system with the tests.
+
+The compilation process was done using a chroot\cite{chroot} environment, been helped with the debootstrap\cite{debootstrap} tool, configuring a sandbox with a fully operational Debian testing operating system, avoiding dirting the base system with the tests.
+After adding all the dependencies, cited on the building WebKitGTK documentation, to the sandboxed Debian OS just using apt-get command, WebKitGTK+ could be compiled. It took about an hour to be done. Once it had finished it gives this message:
+
+{
+\footnotesize
+\begin{lstlisting}
+===========================================================
+ WebKit is now built (1h:04m:54s).
+ To run GtkLauncher with this newly-built code, use the
+ "Tools/Scripts/run-launcher" script.
+===========================================================
+\end{lstlisting}
+}
+
+But after running the \verb#run-launcher# script fails with the message:
+
+{
+\footnotesize
+\begin{lstlisting}
+$ ./Tools/Scripts/run-launcher
+Unsupported platform, can't determine built library locations.
+Try `build-webkit --help` for more information.
+\end{lstlisting}
+}
+
+After reading some times the documentation, and looking for some examples, the problem was solved just adding the parameter \verb#--gtk# when running the \verb#run-launcher# script, in the way:
+
+{
+\footnotesize
+\begin{lstlisting}
+$ ./Tools/Scripts/run-launcher --gtk
+\end{lstlisting}
+}
+
+This runs a simple web browser example based on the just compiled WebKit engine.
 
 \chapter{Personal evaluation}
 The work done in this Practicum project was very helpful for the author for his learning about the usage of the crosscompiling tools, and the porting of some pieces of code to embedded platforms.
