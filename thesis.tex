@@ -29,9 +29,29 @@ This document resumes the work carried out during the Free Software Master\cite{
 In this Practicum project were used some technologies related with embedded environments, as processor families, crosscompilation toolchains and processor emulation software.
 
 \section{Yocto project}
-Traditionally the Linux distribution porting to different architectures, specifically to embedded systems, used to be a hard task with a lot of custom work related with the low level hardware layer adaptation, hardware abstraction layer (HAL).
+Traditionally the Linux distribution porting to different architectures, specifically to embedded systems, used to be a hard task with a lot of custom work related with the low level hardware layer adaptation, known as hardware abstraction layer (HAL).
 
-In order to try to manage this tasks in a more simple way was created the project OpenEmbedded. This was  the merge of the projects OpenZaurus with some contributions from projects like Faliar Linux and OpenSIMpad, getting a common codebase, from which any of the original projects could be built.
+In order to try to manage this tasks in a more simple way were created some toolchains. The historic evolution of the Yocto\cite{yocto} project was as follows:
+
+\begin{itemize}
+\item In the year 2001, Sharp introduces the SL-5000, a PDA that runs a Linux operating system.
+\item In the year 2002, Chris Larson, realized that the original Sharp ROM is quite limited and he decided to start working on a new build system, OpenZaurus\cite{openzaurus}, to create custom ROM image for this device.
+\item During the years 2002 and 2003, OpenZaurus project grew and started supporting a large number of packages and targets, based on Buildroot tools.
+\item In January 2003, some limitations of the Buildroot\cite{buildroot} are clear, and BitBake\cite{bitbake} creation was proposed as a solution.
+\item In February 2003, Holger Schurig, started the OpenEmbedded\cite{openembedded} development, based on BitBake.
+\item In May 2003, Chris Larson, added the mayor functionality from OpenZaurus to the OpenEmbedded project, and started the convertions of the other packages.
+\item In December 2003, Michael Lauer, released the version 3.3.5 of the OpenZaurus project, and abandoned the OpenZaurus build system, and converted hundreds of packages to OpenEmbedded.
+\item In December 2004, the OpenEmbedded project splitted its development into the BitBake build system, as a generic task executor, and the OpenEmbedded metadata for BitBake.
+\end{itemize}
+
+OpenEmbeddes was merged with some contributions from projects like Faliar Linux and OpenSIMpad, getting a common codebase, from which any of the original projects could be built.
+
+Other distros started adapting OE: Unslug, OpenSimpad, GPE Phone Edition, Ångström, OpenMoko... 
+
+2006(?)-2008 Linux Start-Up OpenedHand developed a distribution called Poky Linux (and the Clutter library).
+2008 Intel buys OpenedHand; focus for Poky is now on Atom based devices
+2010 Linux foundation starts Yocto Project: x86, ARM, MIPS, and Power Architecture®
+2011 Work on common code base with OpenEmbedded: OpenEmbedded-Core 
 
 \section{QEMU}
 QEMU (Quick Emulator)\cite{qemu} is an open source software capable of emulate or virtualize a bunch different processor families, including most of the more common architectures in embedded systems, like PowerPC, MIPS, or ARM. It also can emulate common PC arquitectures.
@@ -293,6 +313,22 @@ Tips and Tricks for using Git with WebKit\\
 \bibitem{meta-browser}
 meta-browser: OpenEmbedded/Yocto BSP layer for Web Browsers\\
 \url{https://github.com/OSSystems/meta-browser}
+
+\bibitem{openzaurus}
+OpenZaurus\\
+\url{http://www.openzaurus.org/wordpress/}
+
+\bibitem{buildroot}
+BuildRoot\\
+\url{http://buildroot.uclibc.org/}
+
+\bibitem{bitbake}
+BitBake\\
+\url{http://developer.berlios.de/projects/bitbake/}
+
+\bibitem{openembedded}
+OpenEmbedded\\
+\url{http://www.openembedded.org/wiki/Main_Page}
 
 \bibitem{chroot}
 chroot\\
