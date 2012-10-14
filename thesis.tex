@@ -14,7 +14,7 @@
 
 \usepackage[table]{xcolor}
 
-\title{Crosscompilation of the open source web browser engine WebKit for the ARMv7 processors family}
+\title{Crosscompilation of the open source web browser engine WebKitGTK+ for the ARMv7 processors family}
 \author{Antonio Arias Losada}
 \date{1st October 2012}
 \begin{document}
@@ -80,7 +80,9 @@ Its development was started in 1998, as part of the KDE project, under the name 
 
 On the $8^{th}$ of april of 2010 was announced a new version of WebKit, that was redesigned from the scratch to get a multi process web engine, where each web application is executed as an independant process. This new version produced an incompatible API, and this caused that this new version should have a different name to try to avoid confusions, so it was called WebKit2.
 
-It is licensed under the LGPL and BSD licenses. 
+It is licensed under the LGPL and BSD licenses.
+
+WebKitGTK+\cite{webkitgtk+} is the porting of the WebKit web engine to run under the GTK+\cite{gtk+} platform, which is a multi-platform for creating graphical user interfaces, based on the initial development of GIMP\cite{gimp} project, and now as part of the Gnome\cite{gnome} project.
 
 \chapter{Description of the practicum}
 
@@ -92,7 +94,7 @@ Antonio is Telecommunication Engineer by the Vigo University in 2006. He has exp
 The tutor of this Master Thesis is V\'ictor Manuel J\'aquez Leal. He is a software engineer with solid experience in GNU/Linux mobile device development, focused on hardware accelerated multimedia and system applications (package management), and interested in kernel space development.
 
 \section{The hosting enterprise}
-The hosting enterprise of this Practicum project is Igalia\cite{igalia}. Igalia is a Free Software Engineering company, focused on selling services and knowledge.
+The hosting enterprise of this Practicum project is Igalia\cite{igalia}. Igalia is a Free Software Engineering company, focused on selling services and knowledge.1
 
 It is a company based on 3 main values:
 
@@ -107,7 +109,7 @@ Igalia employes several core developers of the WebKitGTK+ port, with contributio
 \section{Practicum description}
 WebKit is one of the more complete and versatile web browser engines, with a high level of standard compatibility, used in some of the more important web browser applications, and huge number of embedded devices. This becomes WebKit in an very important piece of code in the nowadays world, where the web applications are becoming a key point in the software ecosystem.
 
-This practicum was focused in the crosscompilation of the open source web browser engine WebKit to be used in a ARMv7 based system, like most of the embedded devices availables in the market. 
+This practicum was focused in the crosscompilation of the open source web browser engine WebKitGTK+ to be used in a ARMv7 based system, like most of the embedded devices availables in the market. 
 
 \section{Practicum planning and work environment}
 Usually this practicum work used to be done during the summer time, mainly in July and August. The author of the practicum has a full time job, which makes impossible to dedicate the needed time to the practicum work only on summer. Trying to solve this problem this work was started earlier. So it was planned in short working days of 3 hours each, from Monday to Friday, starting on 14th of May and ending on 30th of September. This way it should be spent about 300 hours on practicum work.
@@ -324,6 +326,22 @@ Building WebKitGTK+\\
 Tips and Tricks for using Git with WebKit\\
 \url{http://trac.webkit.org/wiki/UsingGitWithWebKit/}
 
+\bibitem{webkitgtk+}
+WebKitGTK+\\
+\url{http://webkitgtk.org/}
+
+\bibitem{gtk+}
+GTK+\\
+\url{http://www.gtk.org/}
+
+\bibitem{gimp}
+GIMP\\
+\url{http://www.gimp.org/}
+
+\bibitem{gnome}
+Gnome\\
+\url{http://www.gnome.org/}
+
 \bibitem{meta-browser}
 meta-browser: OpenEmbedded/Yocto BSP layer for Web Browsers\\
 \url{https://github.com/OSSystems/meta-browser}
@@ -355,6 +373,7 @@ chroot\\
 \bibitem{debootstrap}
 debootstrap\\
 \url{http://wiki.debian.org/Debootstrap/}
+
 
 \end{thebibliography}
 
