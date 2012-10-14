@@ -29,9 +29,13 @@ This document resumes the work carried out during the Free Software Master\cite{
 In this Practicum project were used some technologies related with embedded environments, as processor families, crosscompilation toolchains and processor emulation software.
 
 \section{Yocto project}
+The Yocto\cite{yocto} project is an open source collaboration project that provides templates, tools and methods to help you create custom Linux-based systems for embedded products regardless of the hardware architecture. It's not an embedded Linux distribution, it creates a custom one for you.
+
+And it is licensed under a mix of licenses of GPLv2 and MIT.
+
 Traditionally the Linux distribution porting to different architectures, specifically to embedded systems, used to be a hard task with a lot of custom work related with the low level hardware layer adaptation, known as hardware abstraction layer (HAL).
 
-In order to try to manage this tasks in a more simple way were created some toolchains. The historic evolution of the Yocto\cite{yocto} project was as follows:
+In order to try to manage this tasks in a more simple way were created some toolchains. The historic evolution of the Yocto project was as follows:
 
 \begin{itemize}
 \item In the year 2001, Sharp introduces the SL-5000, a PDA that runs a Linux operating system.
@@ -42,16 +46,14 @@ In order to try to manage this tasks in a more simple way were created some tool
 \item In May 2003, Chris Larson, added the mayor functionality from OpenZaurus to the OpenEmbedded project, and started the convertions of the other packages.
 \item In December 2003, Michael Lauer, released the version 3.3.5 of the OpenZaurus project, and abandoned the OpenZaurus build system, and converted hundreds of packages to OpenEmbedded.
 \item In December 2004, the OpenEmbedded project splitted its development into the BitBake build system, as a generic task executor, and the OpenEmbedded metadata for BitBake.
+\item OpenEmbedded was merged with some contributions from projects like Faliar Linux and OpenSIMpad, getting a common codebase, from which any of the original projects could be built.
+\item Other distros started adapting OE: Unslug, OpenSimpad, GPE Phone Edition, Ångström, OpenMoko... 
+\item 2006-2008 Linux Start-Up OpenedHand developed a distribution called Poky Linux\cite{poky} (and the Clutter library).
+\item 2008 Intel buys OpenedHand; focus for Poky is now on Atom based devices
+\item 2010 Linux foundation starts Yocto Project: x86, ARM, MIPS, and Power Architecture®
+\item 2011 Work on common code base with OpenEmbedded: OpenEmbedded-Core 
 \end{itemize}
 
-OpenEmbeddes was merged with some contributions from projects like Faliar Linux and OpenSIMpad, getting a common codebase, from which any of the original projects could be built.
-
-Other distros started adapting OE: Unslug, OpenSimpad, GPE Phone Edition, Ångström, OpenMoko... 
-
-2006(?)-2008 Linux Start-Up OpenedHand developed a distribution called Poky Linux (and the Clutter library).
-2008 Intel buys OpenedHand; focus for Poky is now on Atom based devices
-2010 Linux foundation starts Yocto Project: x86, ARM, MIPS, and Power Architecture®
-2011 Work on common code base with OpenEmbedded: OpenEmbedded-Core 
 
 \section{QEMU}
 QEMU (Quick Emulator)\cite{qemu} is an open source software capable of emulate or virtualize a bunch different processor families, including most of the more common architectures in embedded systems, like PowerPC, MIPS, or ARM. It also can emulate common PC arquitectures.
@@ -325,6 +327,10 @@ BuildRoot\\
 \bibitem{bitbake}
 BitBake\\
 \url{http://developer.berlios.de/projects/bitbake/}
+
+\bibitem{poky}
+Poky Linux\\
+\url{http://www.pokylinux.org/}
 
 \bibitem{openembedded}
 OpenEmbedded\\
