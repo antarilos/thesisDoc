@@ -212,8 +212,9 @@ w39 &  & 5. Report & Meeting (27/09/2012) \\
 \end{table}
 
 \chapter{Results}
-The work was started as it was expected and planned.
+The work was started as it was expected and planned. In the following sections are described the detailed results of each planned task.
 
+\section{Task 1: Desktop WebKit compilation}
 The \textbf{task 1} was done with a delay of a week over the planning. It consisted of getting the WebKit code, reading the building WebKitGTK+\cite{build webkitgtk+} documentation, and compiling it.
 For the first time it was tried to download the WebKit code using its official SVN repository, but it was so hard, because there is a lot of code to download and the repository checkout failed all the times it was tried. Then it was done cloning the git repository of WebKit\cite{git webkit}, which took about 3 hours to be done, but it worked on the first time.
 While the repository was been cloned, the documentation reading was done, and this helps saving some time.
@@ -254,9 +255,11 @@ $ ./Tools/Scripts/run-launcher --gtk
 
 This runs a simple web browser example based on the compiled WebKit engine, that could be considered as the task 1 goal achieved in the week 22, one later than planned.
 
+\section{Task 2: Yocto environment}
 The \textbf{task 2} was started on time, in the week 22, been run on pararell with the task 1 ending. It was formed by the Yocto Project documentation reading, and the environment preparation.
 The environment preparation was made following the Yocto project quick start guide\cite{yocto quick start}. This guide states the Ubuntu, Fedora, openSUSE and CentOS distributions, in the previous version to the last one, as the tested ones. But for the first test it was tried to deploy it using the Debian chroot environment previously used in the task 1, but it failed. After some trials to solve the problems, a new chroot environoment based on a Ubuntu 11.10 distribution was created, and the Yocto toolchain was tested successfully in this new sandbox. The task was ended in the week 24, before than expected in the initial planning.
 
+\section{Task 3: Run generated image in QEMU}
 The \textbf{task 3} was started in the week 24, about the creation of an image and running it using QEMU. It was selected the \verb#core-image-sato# Yocto demo image to get this done. Two test were done, one with a x86 target and the other with an ARM target. This was done in the week 25. While this compilations are done, some investigations about who creating custom recipes were done, just to advance in the next task work.
 
 In the week 26 a problem about the work done until that moment was discovered. The problem was about the specific ARM target that was been used. The ARM target the image was compiled to was ARMv5, and not ARMv7 as it was defined in the Practicum objectives.
@@ -265,6 +268,7 @@ A solution was proposed by the tutor to configure the Yocto environment to compi
 
 This creates an environment capable of compiling for ARMv7 processors, but another problem related with the emulator appeared. When running the emulator with any image created this way, it results in a Kernel Panic error.
 
+\section{Task 4: WebKit compilation in Yocto and running it in QEMU}
 The \textbf{task 4} was started around the week 32, but most of the time since then was used to try to solve the Kernel Panic issue, but any of the efforts were productive, with the problem that any new compilation trial was too long. In paralell were made some recipes creations, but they were quite a black box job, due to the imposibility of a real testing.
 
 \chapter{Personal evaluation}
