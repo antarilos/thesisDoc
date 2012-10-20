@@ -2,6 +2,7 @@ all: thesis.pdf
 
 %.pdf:: %.tex
 	pdflatex $^
+	pdflatex $^
 
 PHONY: clean
 
