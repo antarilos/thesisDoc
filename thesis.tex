@@ -274,6 +274,19 @@ This creates an environment capable of compiling for ARMv7 processors, but anoth
 The \textbf{task 4} was started around the week 32, but most of the time since then was used to try to solve the Kernel Panic issue, but any of the efforts were productive, with the problem that any new compilation trial was too long. In paralell were made some recipes creations, but they were quite a black box job, due to the imposibility of a real testing.
 
 \chapter{Future work}
+At the moment of writing this document, the identified future work in a very short term is finishing the Linux image creation, containing a WebKitGTK+ web browser for ARMv7 processor target, running it in the QEMU emulator.
+
+Once the planned work is completed the following work would be testing this compiled image in a real embedded device target, verifying its behaviour in a real environment.
+
+[TODO]
+
+Finish the image creation.
+
+Test the image in a real target.
+
+Create a patch to be sent to meta-browser layer project.
+
+Integration with OSTree\cite{ostree}.
 
 \chapter{Personal evaluation}
 The work done in this Practicum project was very helpful for the author for his learning about the usage of the crosscompiling tools, and the porting of some pieces of code to embedded platforms.
@@ -382,6 +395,9 @@ chroot\\
 debootstrap\\
 \url{http://wiki.debian.org/Debootstrap/}
 
+\bibitem{ostree}
+OSTree\\
+\url{https://live.gnome.org/OSTree/}
 
 \end{thebibliography}
 
