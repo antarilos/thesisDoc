@@ -274,19 +274,13 @@ This creates an environment capable of compiling for ARMv7 processors, but anoth
 The \textbf{task 4} was started around the week 32, but most of the time since then was used to try to solve the Kernel Panic issue, but any of the efforts were productive, with the problem that any new compilation trial was too long. In paralell were made some recipes creations, but they were quite a black box job, due to the imposibility of a real testing.
 
 \chapter{Future work}
-At the moment of writing this document, the identified future work in a very short term is finishing the Linux image creation, containing a WebKitGTK+ web browser for ARMv7 processor target, running it in the QEMU emulator.
+At the moment of writing this document, the identified future work in a very short term is finishing the Linux image creation, containing a WebKitGTK+ web browser for ARMv7 processor target, running it in the QEMU emulator, because despite it was the Practicum work main objective it could not be achived on time.
 
-Once the planned work is completed the following work would be testing this compiled image in a real embedded device target, verifying its behaviour in a real environment.
+Once the planned work is completed the following work would be testing this compiled image in a real embedded device target, verifying its behaviour in a real environment. This would be very useful to test if all the requirements are satisfied to run the resulting image in a real environment, enabling to test its performance too.
 
-[TODO]
+As in the initial planning, the next goal would be creating a patch to be sent to the meta-browser Yocto layer project. This task would become the made work in reusable by any other person interested in running a WebKit web browser in a ARMv7 processor.
 
-Finish the image creation.
-
-Test the image in a real target.
-
-Create a patch to be sent to meta-browser layer project.
-
-Integration with OSTree\cite{ostree}.
+As a final objective, that is planned to be done in a future work, would be creating a image for ARMv7 using the OSTree\cite{ostree} tool. This tool enables to manage the creation of one or multiple file system images, creating a easy method of managing the new features integration, while keeping a fully functional system. It could be easyly described as a ``Git-like tool for storing entire snapshots of an operating system''.
 
 \chapter{Personal evaluation}
 The work done in this Practicum project was very helpful for the author for his learning about the usage of the crosscompiling tools, and the porting of some pieces of code to embedded platforms.
