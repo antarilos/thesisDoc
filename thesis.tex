@@ -21,41 +21,42 @@
 \chapter{Introduction}
 This document resumes the work carried out during the Free Software Master\cite{master} Practicum developed by Antonio Arias, in 2012. This Master is taught by Igalia and Rey Juan Carlos University, and the Practicum is the final work done in this Master studies as a real environment exercise related with open source technologies.
 
-The Practicum work involves the crosscompilation of the WebKitGTK+ web browser engine for the ARMv7 processors family, which is one of the more extended processors families in the embedded developments. This will virtually enable a huge number of embbeded devices to run one of the more powerful web browser engines, allowing to create web applications based on the latest HTML technologies and been able to be used almost everywhere.
+In this particular case the Practicum work involves the crosscompilation of the WebKitGTK+\cite{webkitgtk+} web browser engine for the ARMv7 processors family, which is one of the more extended processors families in the embedded developments. This will virtually enable a huge number of embbeded devices to run one of the more powerful web browser engines, allowing to create web applications based on the latest HTML technologies and been able to be used almost everywhere.
 
-In this Practicum project were used some technologies related with embedded environments, as the ARMv7 processor family selected target, the Yocto and OpenEmbedded crosscompilation toolchains used for the compilation tasks, and the QEMU processor emulation software to test the resulting compiled images. All of these, less ARMv7, which is a proprietary hardware architecture, are free software.
+In this Practicum project, to achieve its goal, they were used some technologies related with embedded environments, as the ARMv7 processor family selected target, the Yocto\cite{yocto} and OpenEmbedded\cite{openembedded} crosscompilation toolchains used for the compilation tasks, and the QEMU\cite{qemu} processor emulation software, to test the resulting compiled images. All of these, less ARMv7, which is a proprietary hardware architecture, are free software.
+
+Following these enumerated technologies are introduced.
 
 \section{Yocto project}
-The Yocto\cite{yocto} project is an open source collaboration project that provides templates, tools and methods to help you create custom Linux-based systems for embedded products regardless of the hardware architecture. It's not an embedded Linux distribution, it creates a custom one for you.
-
-And it is licensed under a mix of licenses of GPLv2 and MIT.
+The Yocto project is an open source collaboration project that provides templates, tools and methods to help you creating custom Linux-based systems for embedded products regardless of the hardware architecture. It's not an embedded Linux distribution, it creates a custom one for you.
 
 Traditionally the Linux distribution porting to different architectures, specifically to embedded systems, used to be a hard task with a lot of custom work related with the low level hardware layer adaptation, known as hardware abstraction layer (HAL).
 
-In order to try to manage this tasks in a more simple way were created some toolchains. The historic evolution of the Yocto project was as follows:
+In order to try to manage this tasks in a more simple way, some toolchains were created. The historic evolution of the Yocto project, that represents an example of the creation of this kind of toolchains, was as follows:
 
 \begin{itemize}
-\item In the year 2001, Sharp introduces the SL-5000, a PDA that runs a Linux operating system.
+\item In the year 2001, Sharp introduces the SL-5000, a PDA that runs a Linux based operating system.
 \item In the year 2002, Chris Larson, realized that the original Sharp ROM is quite limited and he decided to start working on a new build system, OpenZaurus\cite{openzaurus}, to create custom ROM image for this device.
-\item During the years 2002 and 2003, OpenZaurus project grew and started supporting a large number of packages and targets, based on Buildroot tools.
-\item In January 2003, some limitations of the Buildroot\cite{buildroot} are clear, and BitBake\cite{bitbake} creation was proposed as a solution.
-\item In February 2003, Holger Schurig, started the OpenEmbedded\cite{openembedded} development, based on BitBake.
+\item During the years 2002 and 2003, OpenZaurus project grew and started supporting a large number of packages and targets, based on Buildroot\cite{buildroot} tools.
+\item In January 2003, some limitations of Buildroot are clear, and BitBake\cite{bitbake} creation was proposed as a solution.
+\item In February 2003, Holger Schurig, started the OpenEmbedded development, based on BitBake.
 \item In May 2003, Chris Larson, added the mayor functionality from OpenZaurus to the OpenEmbedded project, and started the convertions of the other packages.
 \item In December 2003, Michael Lauer, released the version 3.3.5 of the OpenZaurus project, and abandoned the OpenZaurus build system, and converted hundreds of packages to OpenEmbedded.
 \item In December 2004, the OpenEmbedded project splitted its development into the BitBake build system, as a generic task executor, and the OpenEmbedded metadata for BitBake.
 \item OpenEmbedded was merged with some contributions from projects like Faliar Linux and OpenSIMpad, getting a common codebase, from which any of the original projects could be built.
-\item Other distros started adapting OE: Unslug, OpenSimpad, GPE Phone Edition, Ångström, OpenMoko... 
+\item Other distros started adapting OE: Unslug, OpenSimpad, GPE Phone Edition, {\AA}ngstr\"om, OpenMoko... 
 \item 2006-2008 Linux Start-Up OpenedHand developed a distribution called Poky Linux\cite{poky} (and the Clutter library).
 \item 2008 Intel buys OpenedHand; focus for Poky is now on Atom based devices
-\item 2010 Linux foundation starts Yocto Project: x86, ARM, MIPS, and Power Architecture®
+\item 2010 Linux foundation starts Yocto Project: x86, ARM, MIPS, and Power Architecture
 \item 2011 Work on common code base with OpenEmbedded: OpenEmbedded-Core 
 \end{itemize}
 
+The Yocto project is licensed under a mix of licenses of GPLv2 and MIT.
 
 \section{QEMU}
-QEMU (Quick Emulator)\cite{qemu} is an open source software capable of emulate or virtualize a bunch different processor families, including most of the more common architectures in embedded systems, like PowerPC, MIPS, or ARM. It also can emulate common PC arquitectures.
+QEMU (Quick Emulator) is an open source software capable of emulate or virtualize a bunch different processor families, including most of the more common architectures in embedded systems, like PowerPC, MIPS, or ARM. It also can emulate common x86 PC architectures.
 
-As an emulator it uses dynamic binary translation, which consists in the translation of the instruction sets, from the ones of the emulated architecuture into code undestandable by the host device. This emulation technique can achieve a reasonable execution speed, getting a easy scalable solution to emulate new architectures.
+As an emulator it uses dynamic binary translation, which consists in the translation of the instruction sets, from the ones of the emulated architecture into code undestandable by the host device. This emulation technique can achieve a reasonable execution speed, getting an easy scalable solution to emulate new architectures.
 
 It can work in two different modes, emulation or virtualization. When it is used as an emulator, it can run operating systems or any other software built to an architecture different from the host machine one.
 
@@ -64,22 +65,22 @@ When it is used to virtualize a different machine, it can achieve a performance 
 QEMU is released under GPL v2 license.
 
 \section{ARMv7}
-The ARM (Advanced RISC Machine)\cite{arm} is a processor architecture of 32 bits. It is one of the most spread processors architectures in embedded systems, due to its simplicity and low power consumption. Its growth is supported by the licensing policy, which makes possible that a large number of different manufacturers can implement its solution based on this architecture, getting a huge number of developers specialized in this architecture.
+The ARM (Advanced RISC Machine)\cite{arm} is a processor architecture of 32 bits. It is one of the more spread processors architectures in embedded systems, due to its simplicity and low power consumption. Its growth is supported by the licensing policy, which makes possible that a large number of different manufacturers can implement its solution based on this architecture, getting a huge number of developers specialized in this architecture.
 
-The ARMv7 processor core defined the base instruction set more used in the nowadays ARM processor implementations.
+The ARMv7 processor core defines the base instruction set more used in the nowadays ARM processor implementations.
 
 With the ARMv7 family also appeared some architecture extensions like Thumb, which creates a 16 bits sub instruction set to reduce the code size of the more common software parts, or Jazelle, responsible of Java bytecode native execution.
 
 \section{WebKit}
 WebKit\cite{webkit} is an open source web browser engine, used as the basis for powerful web browsers like Epiphany, Safari or Google Chrome.
 
-Its development was started in 1998, as part of the KDE project, under the name of KHTML with the JavaScript engine KJS. Based on this projects, Apple announced in 2002 its forks called WebCore and JavaScriptCore, and in January 2003 Apple relased both cores as open source. They released after in 2003 their Safari web browser first time based in this new open source engine.
+Its development was started in 1998, as part of the KDE project, under the name of KHTML with the JavaScript engine KJS. Based on these projects, Apple announced in 2002 its forks called WebCore and JavaScriptCore, and in January 2003 Apple relased both cores as open source, under the name of WebKit. They released in 2003 their Safari web browser for the first time based in this new open source web browser engine.
 
 On the $8^{th}$ of april of 2010 was announced a new version of WebKit, that was redesigned from the scratch to get a multi process web engine, where each web application is executed as an independant process. This new version produced an incompatible API, and this caused that this new version should have a different name to try to avoid confusions, so it was called WebKit2.
 
-It is licensed under the LGPL and BSD licenses.
+WebKitGTK+, the target of this Practicum work, is the porting of the WebKit web engine to run under the GTK+\cite{gtk+} platform, which is a multi-platform for creating graphical user interfaces, based on the initial development of GIMP\cite{gimp} project, and now as part of the Gnome\cite{gnome} project.
 
-WebKitGTK+\cite{webkitgtk+} is the porting of the WebKit web engine to run under the GTK+\cite{gtk+} platform, which is a multi-platform for creating graphical user interfaces, based on the initial development of GIMP\cite{gimp} project, and now as part of the Gnome\cite{gnome} project.
+The WebKit project is licensed under the LGPL and BSD licenses.
 
 \chapter{Description of the practicum}
 
