@@ -222,9 +222,7 @@ While the repository was been cloned, the documentation reading was done, and th
 The compilation process was done using a chroot\cite{chroot} environment, been helped with the debootstrap\cite{debootstrap} tool, configuring a sandbox with a fully operational Debian testing operating system, avoiding dirting the base system with the tests.
 
 This could be done just executing the following commands:\\
-%\verb$ # debootstrap oneiric ./sandbox http://archive.ubuntu.com/ubuntu/ $\\
-%Ubuntu Oneiric Ocelot (11.10)
-\verb$ # debootstrap testing ./sandbox http://ftp.us.debian.org/debian/ $\\
+\verb$ # debootstrap testing ./sandbox $ \url{http://ftp.us.debian.org/debian/}\\
 \verb$ # mount -o bind /proc/ ./sandbox/proc $\\
 \verb$ # mount -o bind /dev/ ./sandbox/dev/ $\\
 \verb$ # mount -t devpts /dev/pts/ ./sandbox/dev/pts/ $\\
@@ -340,6 +338,42 @@ This runs a simple web browser example based on the compiled WebKit engine, that
 The \textbf{task 2} was started on time, in the week 22, been run on pararell with the task 1 ending. It was formed by the Yocto Project documentation reading, and the environment preparation.
 The environment preparation was made following the Yocto project quick start guide\cite{yocto quick start}. This guide states the Ubuntu, Fedora, openSUSE and CentOS distributions, in the previous version to the last one, as the tested ones. But for the first test it was tried to deploy it using the Debian chroot environment previously used in the task 1, but it failed. After some trials to solve the problems, a new chroot environoment based on a Ubuntu 11.10 distribution was created, and the Yocto toolchain was tested successfully in this new sandbox. The task was ended in the week 24, before than expected in the initial planning.
 
+To create the Ubuntu Oneiric Ocelot (11.10) sandbox environment it should be used the following command:\\
+\verb$ # debootstrap oneiric ./sandbox $ \url{http://archive.ubuntu.com/ubuntu/}\\
+
+After creating the new sandbox, we should enter in it, and execute the following commands to install the Yocto dependencies:\\
+\verb$ # apt-get install gawk \ $\\
+\verb$                   wget \ $\\
+\verb$                   git-core \ $\\ 
+\verb$                   diffstat \ $\\
+\verb$                   unzip \ $\\
+\verb$                   texinfo \ $\\
+\verb$                   build-essential \ $\\
+\verb$                   chrpath \ $\\
+\verb$                   libsdl1.2-dev \ $\\
+\verb$                   xterm $\\
+\\
+After installing the dependencies, we should execute the following commands to get and prepare the Yocto environment:\\
+Get the Yocto release used in the Practicum work, version 7.0.1 ``Denzil'' that was the current version when the work was done. In the date of writing this report the current version is 8.0.0 ``Danny'':\\
+\verb# $ wget # \url{http://downloads.yoctoproject.org/releases/yocto/yocto-1.2.1/poky-denzil-7.0.1.tar.bz2}\\
+\\
+Uncompress it:\\
+\verb# $ tar -xjf poky-denzil-7.0.1.tar.bz2 #\\
+\\
+Source the oe-init-build-env, responsible of creating the build environment in the path used as argument:\\
+\verb# $ source poky-denzil-7.0.1/oe-init-build-env build #\\
+
+Once the build environment is created, the script leaves you in the build directory, where you can configure the image that will be created using the \verb#./conf/local.conf# file. It should be edited setting the following values for some variables:\\
+\verb#BB_NUMBER_THREADS = "8"#\\
+\verb#PARALLEL_MAKE = "-j 8"#\\
+
+This values are set for the processor used in the host computer in this Practicum work. As a general rule, this values should be set to the double of the number of cores of the processor.
+
+When the configuration file is updated, it was compiled the \verb#core-image-sato# image using the following comand:\\
+\verb# $ bitbake core-image-sato #\\
+
+I takes about X hours to the image compiled.
+
 \section{Task 3: Run generated image in QEMU}
 The \textbf{task 3} was started in the week 24, about the creation of an image and running it using QEMU. It was selected the \verb#core-image-sato# Yocto demo image to get this done. Two test were done, one with a x86 target and the other with an ARM target. This was done in the week 25. While this compilations are done, some investigations about who creating custom recipes were done, just to advance in the next task work.
 
@@ -380,7 +414,7 @@ His expertise about the embedded systems was limited in this field due the fact 
 
 The initial planning seemed acute and realistic to be done in 300 hours of work time. But this changed during the course of the Practicum, because the 300 hours were planned to be done in small fragments of 3 hours a day, and some times this time got shorter but recovered during the weekend. This time fragmentation reduced the available time usefulness.
 
-This fact got worse due to the very long testing cycles of the different trials. Each WebKit compilation took about X hours, and each Yocto compilation took about X hours, so each full test was too long, so the failures were too expensive, and they become the initial timing in optimistic in some way.
+This fact got worse due to the very long testing cycles of the different trials. Each WebKit compilation took about 1 hour, and each Yocto compilation took about X hours, so each full test was too long, so the failures were too expensive, and they become the initial timing in optimistic in some way.
 
 To try to minimize the impact of this long testing cycles, they were make most of the time on night, other times during the working day, using remote connection to the computer from the office, and the rest of the thest were done taking advance of the reading documentation time.
 
