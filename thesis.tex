@@ -1,7 +1,7 @@
 \documentclass[a4paper,11pt,openany]{report}
 \usepackage{subfigure}
 \usepackage{graphicx}
-\usepackage [utf8]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage{url}
 \usepackage{float}
 \usepackage{enumerate}
@@ -220,7 +220,88 @@ For the first time it was tried to download the WebKit code using its official S
 While the repository was been cloned, the documentation reading was done, and this helps saving some time.
 
 The compilation process was done using a chroot\cite{chroot} environment, been helped with the debootstrap\cite{debootstrap} tool, configuring a sandbox with a fully operational Debian testing operating system, avoiding dirting the base system with the tests.
-After adding all the dependencies, cited on the building WebKitGTK documentation, to the sandboxed Debian OS just using apt-get command, WebKitGTK+ could be compiled. It took about an hour to be done. Once it had finished it gives this message:
+
+This could be done just executing the following commands:\\
+%\verb$ # debootstrap oneiric ./sandbox http://archive.ubuntu.com/ubuntu/ $\\
+%Ubuntu Oneiric Ocelot (11.10)
+\verb$ # debootstrap testing ./sandbox http://ftp.us.debian.org/debian/ $\\
+\verb$ # mount -o bind /proc/ ./sandbox/proc $\\
+\verb$ # mount -o bind /dev/ ./sandbox/dev/ $\\
+\verb$ # mount -t devpts /dev/pts/ ./sandbox/dev/pts/ $\\
+\verb$ # mount -t sysfs /sys/fs/ ./sandbox/sys $\\
+\verb$ # mount -o bind /run/shm ./sandbox/run/shm $\\
+\verb$ # chroot ./sandbox $\\
+
+The \verb#debootstrap# command creates a basic root filesystem, based, in this case, on the Debian testing. The following \verb#mount# commands are in charge of mounting the host special devices in the brand new filesystem.
+
+Once the filesystem is created and prepared to be used, it only remains running the \verb#chroot# command, just specifying the directory where the filesystem is. The \verb#chroot# command leaves us in the root path of the filesystem as the root user. From here, we can start using this new filesystem as a independen one from the host computer one.
+
+When we have finished using the chroot environment, we should quit from it, just using the \verb#exit# command from the root user session where the \verb#chroot# command had left us.
+
+Once we are back in the host computer we must be careful of unmounting the special devices using the following commands:\\
+\verb$ # umount ./sandbox/run/shm $\\
+\verb$ # umount ./sandbox/sys $\\
+\verb$ # umount ./sandbox/dev/pts $\\
+\verb$ # umount ./sandbox/dev/ $\\
+\verb$ # umount ./sandbox/proc $\\
+
+The next time we will need to use the chroot environment we have just to execute the mounting and chroot commands:\\
+\verb$ # mount -o bind /proc/ ./sandbox/proc $\\
+\verb$ # mount -o bind /dev/ ./sandbox/dev/ $\\
+\verb$ # mount -t devpts /dev/pts/ ./sandbox/dev/pts/ $\\
+\verb$ # mount -t sysfs /sys/fs/ ./sandbox/sys $\\
+\verb$ # mount -o bind /run/shm ./sandbox/run/shm $\\
+\verb$ # chroot ./sandbox $\\
+
+To install the in the chrooted sandbox the WebKitGTK+ dependencies we should execute:\\
+To install the jhbuild dependencies:\\
+\verb$ # apt-get install gobject-introspection \ $\\
+\verb$                   icon-naming-utils \ $\\
+\verb$                   libgcrypt11-dev \ $\\
+\verb$                   libgpg-error-dev \ $\\
+\verb$                   libp11-kit-dev \ $\\
+\verb$                   libtiff4-dev $\\
+\\
+To install the WebKit dependencies:\\
+\verb$ # apt-get install autoconf \ $\\
+\verb$                   automake \ $\\
+\verb$                   autotools-dev \ $\\
+\verb$                   bison \ $\\
+\verb$                   flex \ $\\
+\verb$                   gail-3.0 \ $\\
+\verb$                   gawk \ $\\
+\verb$                   gnome-common \ $\\
+\verb$                   autopoint \ $\\
+\verb$                   gperf \ $\\
+\verb$                   gtk-doc-tools \ $\\
+\verb$                   libenchant-dev \ $\\
+\verb$                   libgail-dev \ $\\
+\verb$                   libgail-3-dev \ $\\
+\verb$                   libgeoclue-dev \ $\\
+\verb$                   libgirepository1.0-dev \ $\\
+\verb$                   libgtk-3-dev \ $\\
+\verb$                   libgstreamer-plugins-base0.10-dev \ $\\
+\verb$                   libicu-dev \ $\\
+\verb$                   libgl1-mesa-glx \ $\\
+\verb$                   libgl1-mesa-dev \ $\\
+\verb$                   libjpeg62-dev \ $\\
+\verb$                   libpango1.0-dev \ $\\
+\verb$                   libpng12-dev \ $\\
+\verb$                   libsqlite3-dev \ $\\
+\verb$                   libtool \ $\\
+\verb$                   libxslt-dev \ $\\
+\verb$                   libxt-dev \ $\\
+\verb$                   libxtst-dev $\\
+
+After installing all the dependencies, cited on the building WebKitGTK+ documentation, in the sandboxed Debian OS just using apt-get command as shown, WebKitGTK+ could be compiled using the following command:\\
+\\
+Download and build all the jhbuild modules:\\
+\verb# $ Tools/Scripts/update-webkitgtk-libs #\\
+\\
+Build WebKitGTK+:\\
+\verb# $ Tools/Scripts/build-webkit --gtk #\\
+
+In the computer used in this Practicum work, Intel{\textregistered} Core{\texttrademark}2 Quad Processor Q8200 and 4 GB of RAM, it took about an hour to be done. Once it had finished it gives this message:
 
 {
 \footnotesize
@@ -233,25 +314,19 @@ After adding all the dependencies, cited on the building WebKitGTK documentation
 \end{lstlisting}
 }
 
-But after running the \verb#run-launcher# script fails with the message:
+But after running the \verb#run-launcher# script fails with the message:\\
+\verb# $ ./Tools/Scripts/run-launcher #\\
 
 {
 \footnotesize
 \begin{lstlisting}
-$ ./Tools/Scripts/run-launcher
 Unsupported platform, can't determine built library locations.
 Try `build-webkit --help` for more information.
 \end{lstlisting}
 }
 
-After reading some times the documentation, and looking for some examples, the problem was solved just adding the parameter \verb#--gtk# when running the \verb#run-launcher# script, in the way:
-
-{
-\footnotesize
-\begin{lstlisting}
-$ ./Tools/Scripts/run-launcher --gtk
-\end{lstlisting}
-}
+After reading some times the documentation, and looking for some examples, the problem was solved just adding the parameter \verb#--gtk# when running the \verb#run-launcher# script, in the way:\\
+\verb# $ ./Tools/Scripts/run-launcher --gtk #\\
 
 This runs a simple web browser example based on the compiled WebKit engine, that could be considered as the task 1 goal achieved in the week 22, one later than planned.
 
