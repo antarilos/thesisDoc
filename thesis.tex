@@ -253,6 +253,12 @@ $ ./Tools/Scripts/run-launcher --gtk
 
 This runs a simple web browser example based on the compiled WebKit engine, that could be considered as the task 1 goal achieved in the week 22, one later than planned.
 
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=1]{webkit_x86.eps}
+\caption{WebKitGTK+ x86}
+\end{figure}
+
 \section{Task 2: Yocto environment}
 The \textbf{task 2} was started on time, in the week 22, been run on pararell with the task 1 ending. It was formed by the Yocto Project documentation reading, and the environment preparation.
 The environment preparation was made following the Yocto project quick start guide\cite{yocto quick start}. This guide states the Ubuntu, Fedora, openSUSE and CentOS distributions, in the previous version to the last one, as the tested ones. But for the first test it was tried to deploy it using the Debian chroot environment previously used in the task 1, but it failed. After some trials to solve the problems, a new chroot environoment based on a Ubuntu 11.10 distribution was created, and the Yocto toolchain was tested successfully in this new sandbox. The task was ended in the week 24, before than expected in the initial planning.
@@ -278,7 +284,6 @@ The work done during this task was quite incomplete, so the results of it were q
 \includegraphics[scale=1]{kernel_panic.eps}
 \caption{Kernel Panic}
 \end{figure}
-
 
 \chapter{Future work}
 At the moment of writing this document, the identified future work in a very short term is finishing the Linux image creation, containing a WebKitGTK+ web browser for ARMv7 processor target, running it in the QEMU emulator, because despite it was the Practicum work main objective it could not be achived on time.
