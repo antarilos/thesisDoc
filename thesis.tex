@@ -410,6 +410,89 @@ This creates an environment capable of compiling for ARMv7 processors, but anoth
 \section{Task 4: WebKit compilation in Yocto and running it in QEMU}
 The \textbf{task 4} was started around the week 32, but most of the time since then was used to try to solve the Kernel Panic issue, but any of the efforts were productive, with the problem that any new compilation trial was too long. In paralell were made some recipes creations, but they were quite a black box job, due to the imposibility of a real testing.
 
+The recipes tree is:
+\begin{verbatim}
+meta-webkit
+|-- conf
+|   \-- layer.conf
+|-- COPYING.MIT
+|-- README
+|-- recipes-webkit
+    |-- webkit
+        |-- python.bb
+        |-- webkit_2.0.bb
+\end{verbatim}
+
+The current status of the patches is:
+
+\begin{verbatim}
+File: webkit_2.0.bb
+---------------------------------------------------------------
+DESCRIPTION = "Webkit-Gtk 2 browser"
+LICENSE = "BSD"
+
+DEPENDS = "\
+           autoconf \
+           automake \
+           bison \
+           flex \
+           gawk \
+           gnome-common \
+           gperf \
+           libtool \
+           \
+           python\
+           \
+           gobject-introspection \
+"
+SRC_URI = "git://git.webkit.org/WebKit.git"
+SRCREV = "3ff8da427d2db2c1646e64b5699b27cf2b2e5988"
+
+COMPATIBLE_MACHINE_armv7a = "(.*)"
+
+DEFAULT_PREFERENCE = "-1"
+
+SRC_URI[md5sum] = ""
+SRC_URI[sha256sum] = ""
+
+do_configure() {
+        cd ${WORKDIR}
+        ./Tools/Scripts/update-webkitgtk-libs
+        ./Tools/Scripts/build-webkit --gtk
+}
+
+do_install() {
+}
+---------------------------------------------------------------
+\end{verbatim}
+
+\begin{verbatim}
+File: python.bb
+---------------------------------------------------------------
+DESCRIPTION = "Python"
+LICENSE = "PSF"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=ed3abfd1059e2d3a36a8cff3986f9bb6"
+
+SRC_URI = "http://www.python.org/ftp/python/2.7.3/Python-2.7.3.tgz"
+
+COMPATIBLE_MACHINE_armv7a = "(.*)"
+
+DEFAULT_PREFERENCE = "-1"
+
+SRC_URI[md5sum] = ""
+SRC_URI[sha256sum] = ""
+
+do_configure() {
+        cd ${WORKDIR}
+}
+
+do_install() {
+}
+---------------------------------------------------------------
+\end{verbatim}
+
+The webkit_2.0.bb recipe is immature, and the python.bb recipe is almost empty. This is caused mainly to the time wasted trying to identify the errors given during the recipe creation, and that were caused by the ARM version problems.
+
 This task was stopped in the week 39, because it was delaying too much the start of the task 5, about the creation of this report.
 
 The work done during this task was quite incomplete, so the results of it were quite poor at this moment, and it was planned to be improved and finished after the creation of this document.
