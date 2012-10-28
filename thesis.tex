@@ -363,7 +363,15 @@ Uncompress it:\\
 Source the oe-init-build-env, responsible of creating the build environment in the path used as argument:\\
 \verb# $ source poky-denzil-7.0.1/oe-init-build-env build #\\
 
-Once the build environment is created, the script leaves you in the build directory, where you can configure the image that will be created using the \verb#./conf/local.conf# file. It should be edited setting the following values for some variables:\\
+Once the build environment is created, everything is prepared to create, compile and run an image.
+
+\section{Task 3: Run generated image in QEMU}
+The \textbf{task 3} was started in the week 24, about the creation of an image and running it using QEMU. It was selected the \verb#core-image-sato# Yocto demo image, as in the previous task, to get this done. Two test were done, one with a x86 target and the other with an ARM target. This was done in the week 25. While this compilations are done, some investigations about who creating custom recipes were done, just to advance in the next task work.
+
+To enter in the created build environment it should be sourced again the oe-init-build-env:\\
+\verb# $ source poky-denzil-7.0.1/oe-init-build-env build #\\
+
+The script leaves you in the build directory, where you can configure the image that will be created using the \verb#./conf/local.conf# file. It should be edited setting the following values for some variables:\\
 \verb#BB_NUMBER_THREADS = "8"#\\
 \verb#PARALLEL_MAKE = "-j 8"#\\
 
@@ -374,8 +382,18 @@ When the configuration file is updated, it was compiled the \verb#core-image-sat
 
 I takes about X hours to the image compiled.
 
-\section{Task 3: Run generated image in QEMU}
-The \textbf{task 3} was started in the week 24, about the creation of an image and running it using QEMU. It was selected the \verb#core-image-sato# Yocto demo image to get this done. Two test were done, one with a x86 target and the other with an ARM target. This was done in the week 25. While this compilations are done, some investigations about who creating custom recipes were done, just to advance in the next task work.
+To compile for the ARM processors architecture it should be edited the \verb#./conf/local.conf# file, and set the following variables:\\
+\verb#MACHINE ?= "qemuarm"#\\
+
+Keeping the value \verb#MACHINE ??= "qemux86"# also builds the image for the x86 processors family. This compilation takes about X hours to get done.
+
+Once the images are compiled, it could be run using the command:\\
+\\
+To run the x86 emulation:\\
+\verb#runqemu qemux86#\\
+\\
+To run the ARM emulation:\\
+\verb#runqemu qemuarm#\\
 
 In the week 26 a problem about the work done until that moment was discovered. The problem was about the specific ARM target that was been used. The ARM target the image was compiled to was ARMv5, and not ARMv7 as it was defined in the Practicum objectives.
 
@@ -383,18 +401,18 @@ A solution was proposed by the tutor to configure the Yocto environment to compi
 
 This creates an environment capable of compiling for ARMv7 processors, but another problem related with the emulator appeared. When running the emulator with any image created this way, it results in a Kernel Panic error.
 
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=1]{kernel_panic.eps}
+\caption{Kernel Panic}
+\end{figure}
+
 \section{Task 4: WebKit compilation in Yocto and running it in QEMU}
 The \textbf{task 4} was started around the week 32, but most of the time since then was used to try to solve the Kernel Panic issue, but any of the efforts were productive, with the problem that any new compilation trial was too long. In paralell were made some recipes creations, but they were quite a black box job, due to the imposibility of a real testing.
 
 This task was stopped in the week 39, because it was delaying too much the start of the task 5, about the creation of this report.
 
 The work done during this task was quite incomplete, so the results of it were quite poor at this moment, and it was planned to be improved and finished after the creation of this document.
-
-\begin{figure}[hbtp]
-\centering
-\includegraphics[scale=1]{kernel_panic.eps}
-\caption{Kernel Panic}
-\end{figure}
 
 \chapter{Future work}
 At the moment of writing this document, the identified future work in a very short term is finishing the Linux image creation, containing a WebKitGTK+ web browser for ARMv7 processor target, running it in the QEMU emulator, because despite it was the Practicum work main objective it could not be achived on time.
