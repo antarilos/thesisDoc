@@ -25,20 +25,25 @@
 \usepackage{pifont}
 %\usepackage{fourier-orns}
 
+\usepackage{tabularx}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{footline}
 {
-\leavevmode
-\hbox{
-\begin{beamercolorbox}
-[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fill,rightskip=.3cm]
-{author in head/foot}
-\usebeamerfont{author in head/foot}\insertauthor
-\end{beamercolorbox}%
-\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fill]
-{title in head/foot}%
-\usebeamerfont{title in head/foot}\insertshortinstitute
-\end{beamercolorbox}}%
+  \leavevmode
+  \hbox{
+    \begin{beamercolorbox}
+      [wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fill,rightskip=.3cm]
+      {author in head/foot}
+      \usebeamerfont{author in head/foot}\insertauthor
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fill]
+      {title in head/foot}%
+      \usebeamerfont{title in head/foot}\insertshortinstitute
+  \end{beamercolorbox}}%
   \vskip0pt%
 }
 
@@ -67,108 +72,218 @@
 \begin{document}
 
 \begin{frame}
-% Cover slide
-\titlepage
-\begin{center}
-\includegraphics[height=1cm]{images/igalia.png}
-\hspace{10mm}
-\includegraphics[height=1cm]{images/urjc.png}
-\end{center}
+  % Cover slide
+  \titlepage
+  \begin{center}
+    \includegraphics[height=1cm]{images/igalia.png}
+    \hspace{10mm}
+    \includegraphics[height=1cm]{images/urjc.png}
+  \end{center}
 \end{frame}
 
 \begin{frame}
-\frametitle{Table of contents}
+  \frametitle{Table of contents}
 
-\tableofcontents[hideallsubsections]
+  \tableofcontents[hideallsubsections]
 \end{frame}
 
 
 \section{Introduction}
 %\1ction{Master Thesis: Crosscompilation of the open source web browser engine WebKitGTK+ for the ARMv7 processors family}
 \begin{frame}
-\frametitle{Introduction}
+  \frametitle{Introduction}
 
 \end{frame}
 
 \section{Master Thesis}
+\begin{frame}
+  \frametitle{Master Thesis}
+
+  Title:
+  \begin{center}
+    \textit{Crosscompilation of the open source web browser engine WebKitGTK+ for the ARMv7 processors}
+  \end{center}
+
+  Author:
+  Antonio Arias Losada
+
+  Tutor:
+  V\'ictor Manuel J\'aquez Leal
+
+\end{frame}
+
 \subsection{Objectives}
 \begin{frame}
-\frametitle{Objectives}
+  \frametitle{Objectives}
 
-The main objective is building a Linux based image for ARM processors architecture with a WebKit2 web browser.
-The achieve the main goal, the work was divided the following subobjectives:
+  The main objective is \textbf{building} a Linux based \textbf{image} for \textbf{ARMv7} processors architecture with a \textbf{WebKit2} web browser fully functional.
+  
+  To achieve the main goal, the work was divided the following subobjectives:
 
-\vspace{5mm}
+  \vspace{5mm}
 
-\begin{enumerate}
-\item<1-> Compile WebKit.
-\item<2-> Prepare Yocto environment.
-\item<3-> Create a Yocto image for ARM and run it with QEMU.
-\item<4-> Create a Yocto image for ARM with WebKit.
-\end{enumerate}
+  \begin{enumerate}
+    \item<2-> Compile WebKit.
+    \item<3-> Prepare Yocto environment.
+    \item<4-> Create a Yocto image for ARM and run it with QEMU.
+    \item<5-> Create a Yocto image for ARM with WebKit.
+  \end{enumerate}
 
 \end{frame}
 
 \subsection{Motivation}
 \begin{frame}
-\frametitle{Motivation}
+  \frametitle{Motivation}
 
-This work is motivated basically by two key points:
-\pause
+  This work is motivated basically by two key points:
+  \pause
 
-\vspace{10mm}
-\begin{center}
-\includegraphics[height=1.5cm]{images/HTML5-logo.png}
-\hspace{10mm}
-\pause
-\includegraphics[height=0.8cm]{images/ARM-logo.png}
-\end{center}
+  \vspace{10mm}
+  \begin{center}
+    \includegraphics[height=2.5cm]{images/HTML5-logo.png}
+    \hspace{10mm}
+    \pause
+    \href{http://financialreports.arm.com/downloads/pdfs/ARM_AR11_Our_Story_v1.pdf}{\includegraphics[height=1.3cm]{images/ARM-logo.png}}
+    
+    \pause
+    \begin{tabularx}{\textwidth}{Xl}
+       & 95\% mobiles; 90\% HDD; 40\% TV \\
+       & +121 licenses (849 in total) \\
+       & 7.9 billion units shipped \\
+       & Increasing tendencies \\
+       & [ARM Annual Report 2011]
+    \end{tabularx}
+  \end{center}
 
 \end{frame}
 
 \subsection{Results}
 \begin{frame}
-\frametitle{Results}
+  \frametitle{Results}
 
-\begin{block}{Task \#1}<1->
-WebKit2 GTK+ compiled for AMD64 architecture.
-\end{block}
+  These are the results of the proposed tasks.
 
-\begin{block}{Task \#2}<2->
-Yocto environment prepared.
-\end{block}
+  \begin{block}{Task \#1}<2->
+    \begin{tabularx}{\textwidth}{Xr}
+      WebKit2 GTK+ compiled for AMD64 architecture. & \cmark \\
+    \end{tabularx}
+  \end{block}
 
-\begin{block}{Task \#3}<3->
-Generated and ran an ARM image.
-\end{block}
+  \begin{block}{Task \#2}<3->
+    \begin{tabularx}{\textwidth}{Xr}
+      Yocto environment prepared. & \cmark \\
+    \end{tabularx}
+  \end{block}
 
-\begin{alertblock}{Task \#4}<4->
-Compile WebKit2 GTK+ for ARM architecture.
-\end{alertblock}
+  \begin{block}{Task \#3}<4->
+    \begin{tabularx}{\textwidth}{Xr}
+      Generated and ran an ARM image. & \cmark \\
+    \end{tabularx}
+  \end{block}
 
+  \begin{alertblock}{Task \#4}<5->
+    \begin{tabularx}{\textwidth}{Xr}
+      Compile WebKit2 GTK+ for ARM architecture. & \xmark \\
+    \end{tabularx}
+  \end{alertblock}
+\end{frame}
+
+\subsection{Conclusions}
+\begin{frame}
+  \frametitle{Conclusions}
+
+  The Master Thesis work conclusions are:
+
+  \begin{block}{}<2->
+    Embedded systems and development tools learning.
+  \end{block}
+
+  \begin{block}{}<3->
+    Inconvenience of fragmented work time.
+  \end{block}
+
+  \begin{block}{}<4->
+    Long testing cycles.
+  \end{block}
+
+  \begin{block}{}<5->
+    Initially wrong planned tests.
+  \end{block}
+
+  \begin{block}{}<6->
+    Positive global evaluation of the practicum work.
+  \end{block}
 \end{frame}
 
 \section{Experiences}
+\subsection{Daily}
+\begin{frame}
+  \frametitle{Daily}
+  \includegraphics[height=2.5cm]{images/debian-logo.png}
+  \includegraphics[height=2.5cm]{images/ubuntu-logo.png}
+  \includegraphics[height=2.5cm]{images/firefox-logo.png}
+  
+  \includegraphics[height=2.5cm]{images/libreoffice-logo.png}
+\end{frame}
+
 \subsection{MFS Open sessions 2011}
 \begin{frame}
-\frametitle{MFS Open sessions 2011}
-Introductory talk about Open Source Hardware in the open sessions of the Free Software Master 2011 edition, collaborating with Xulio Coira.
+  \frametitle{MFS Open sessions 2011}
+  Introductory talk about Open Source Hardware in the open sessions of the Free Software Master 2011 edition, collaborating with Xulio Coira.
 
-\begin{center}
-\includegraphics[height=5cm]{images/ohw-logo.png}
-\end{center}
+  \begin{center}
+    \includegraphics[height=5cm]{images/ohw-logo.png}
+  \end{center}
 
 \end{frame}
 
 \subsection{OSHWDEM 2012}
 \begin{frame}
-\frametitle{OSHWDEM 2012}
-OSHWDEM 2012 celebrated in A Coru\~na, on 17/11/2012.
+  \frametitle{OSHWDEM 2012}
+  OSHWDEM 2012 celebrated in A Coru\~na, on 17/11/2012.
 
-\begin{center}
-\includegraphics[height=6.5cm]{images/cartel-oshwdem5-300.png}
-\end{center}
+  \begin{center}
+    \includegraphics[height=6.5cm]{images/cartel-oshwdem5-300.png}
+  \end{center}
 
+\end{frame}
+
+\subsection{Conclusion}
+\begin{frame}
+  \frametitle{Conclusion}
+
+\end{frame}
+
+\section{}
+\begin{frame}
+  \vspace*{\fill}
+  \begin{center}
+    {\Huge Thank you!}
+  \end{center}
+  \vspace*{\fill}
+\end{frame}
+
+\begin{frame}
+  \frametitle{License}
+  This presentation is released under the following license:
+  
+  \begin{block}{}
+    \begin{center}
+      \includegraphics[height=0.5cm]{images/cc-by.png}
+  
+      This work is licensed under a \href{http://creativecommons.org/licenses/by/3.0/deed.en_US}{Creative Commons Attribution 3.0 Unported License}.
+    \end{center}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Logo's licenses}
+  \begin{tabularx}{\textwidth}{lX}
+    \href{http://www.debian.org/logos/openlogo-100.png}{\includegraphics[height=0.5cm]{images/debian-logo.png}} & Debian logo. \\
+    \href{http://design.ubuntu.com/wp-content/uploads/logo-ubuntu_cof-orange-hex.png}{\includegraphics[height=0.5cm]{images/ubuntu-logo.png}} & Ubuntu logo. \\
+    \href{http://upload.wikimedia.org/wikipedia/commons/e/e7/Mozilla_Firefox_3.5_logo_256.png}{\includegraphics[height=0.5cm]{images/firefox-logo.png}} & Firefox logo. \\
+    \href{http://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/LibreOfficelogo.svg/200px-LibreOfficelogo.svg.png}{\includegraphics[height=0.5cm]{images/libreoffice-logo.png}} & Libre office logo. \\
+  \end{tabularx}
 \end{frame}
 
 \end{document}
