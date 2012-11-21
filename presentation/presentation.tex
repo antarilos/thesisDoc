@@ -26,6 +26,7 @@
 %\usepackage{fourier-orns}
 
 \usepackage{tabularx}
+\usepackage{color}
 
 \newcommand{\cmark}{\ding{51}}
 \newcommand{\xmark}{\ding{55}}
@@ -89,10 +90,26 @@
 
 
 \section{Introduction}
-%\1ction{Master Thesis: Crosscompilation of the open source web browser engine WebKitGTK+ for the ARMv7 processors family}
 \begin{frame}
   \frametitle{Introduction}
 
+  Before...
+
+  \begin{block}{}<2->
+    Open source is something that I had been using since the University time, but without realizing everything that is behind it.
+  \end{block}
+
+  \begin{block}{}<3->
+    Sometimes I had some doubts about licensing, but it didn't seem important to me.
+  \end{block}
+
+  \begin{block}{}<4->
+    I used to think that contributing or starting a new open source project is just reserved for ``gurus''.
+  \end{block}
+
+  \begin{block}{}<5->
+    I thought that open source had born with Linux.
+  \end{block}
 \end{frame}
 
 \section{Master Thesis}
@@ -146,13 +163,15 @@
     \href{http://financialreports.arm.com/downloads/pdfs/ARM_AR11_Our_Story_v1.pdf}{\includegraphics[height=1.3cm]{images/ARM-logo.png}}
     
     \pause
-    \begin{tabularx}{\textwidth}{Xl}
-       & 95\% mobiles; 90\% HDD; 40\% TV \\
-       & +121 licenses (849 in total) \\
-       & 7.9 billion units shipped \\
-       & Increasing tendencies \\
-       & [ARM Annual Report 2011]
-    \end{tabularx}
+    \color{gray}{
+      \begin{tabularx}{\textwidth}{Xl}
+         & 95\% mobiles; 90\% HDD; 40\% TV \\
+         & +121 licenses (849 in total) \\
+         & 7.9 billion units shipped \\
+         & Increasing tendencies \\
+         & [ARM Annual Report 2011]
+      \end{tabularx}
+    }
   \end{center}
 
 \end{frame}
@@ -161,7 +180,7 @@
 \begin{frame}
   \frametitle{Results}
 
-  These are the results of the proposed tasks.
+  These are the results of the proposed tasks:
 
   \begin{block}{Task \#1}<2->
     \begin{tabularx}{\textwidth}{Xr}
@@ -219,11 +238,16 @@
 \subsection{Daily}
 \begin{frame}
   \frametitle{Daily}
-  \includegraphics[height=2.5cm]{images/debian-logo.png}
-  \includegraphics[height=2.5cm]{images/ubuntu-logo.png}
-  \includegraphics[height=2.5cm]{images/firefox-logo.png}
   
-  \includegraphics[height=2.5cm]{images/libreoffice-logo.png}
+  %Daily use of open source software.
+  
+  %Diffusion of the open source culture, trying to support the respect for it and the respecto for the licenses.
+
+  \vspace*{\fill}
+  \begin{center}
+    \includegraphics[height=3cm]{images/Tux.png}
+  \end{center}
+
 \end{frame}
 
 \subsection{MFS Open sessions 2011}
@@ -250,8 +274,45 @@
 
 \subsection{Conclusion}
 \begin{frame}
-  \frametitle{Conclusion}
+  \frametitle{Conclusion I}
 
+  The main conclusions about my learning are:
+  
+  \begin{block}{FLOSS licenses}<2->
+    Better understanding.\\
+    A lot of myths dismantled.\\
+    Learnt the importance of respecting them.
+  \end{block}
+
+  \begin{block}{FLOSS in the enterprise}<3->
+    Knowledge about bussines models.\\
+    Some myths dismantled.
+  \end{block}
+
+  \begin{block}{FLOSS communities}<4->
+    How communities work.\\
+    Technical dynamics of a project.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Conclusion II}
+
+  The main conclusions about my learning are:
+  
+  \begin{block}{Technologies}<1->
+    Starting point to grow learning.
+  \end{block}
+
+  \begin{block}{Open source mind}<2->
+    Changed the point of view about the open source.\\
+    Started collaboration in open source project.\\
+    Lost the fear to publish code.
+  \end{block}
+
+  \begin{block}{Networking}<3->
+    Met a great group of classmates.
+  \end{block}
 \end{frame}
 
 \section{}
@@ -260,7 +321,6 @@
   \begin{center}
     {\Huge Thank you!}
   \end{center}
-  \vspace*{\fill}
 \end{frame}
 
 \begin{frame}
@@ -278,11 +338,11 @@
 
 \begin{frame}
   \frametitle{Logo's licenses}
-  \begin{tabularx}{\textwidth}{lX}
-    \href{http://www.debian.org/logos/openlogo-100.png}{\includegraphics[height=0.5cm]{images/debian-logo.png}} & Debian logo. \\
-    \href{http://design.ubuntu.com/wp-content/uploads/logo-ubuntu_cof-orange-hex.png}{\includegraphics[height=0.5cm]{images/ubuntu-logo.png}} & Ubuntu logo. \\
-    \href{http://upload.wikimedia.org/wikipedia/commons/e/e7/Mozilla_Firefox_3.5_logo_256.png}{\includegraphics[height=0.5cm]{images/firefox-logo.png}} & Firefox logo. \\
-    \href{http://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/LibreOfficelogo.svg/200px-LibreOfficelogo.svg.png}{\includegraphics[height=0.5cm]{images/libreoffice-logo.png}} & Libre office logo. \\
+  \begin{tabularx}{\textwidth}{clX}
+    \href{http://www.w3.org/html/logo/downloads/HTML5_Logo_512.png}{\includegraphics[height=1cm]{images/HTML5-logo.png}} & HTML5 logo. & CC-By 3.0 \\
+    \href{http://upload.wikimedia.org/wikipedia/commons/thumb/6/60/ARM_logo.svg/200px-ARM_logo.svg.png}{\includegraphics[height=0.5cm]{images/ARM-logo.png}} & Similar ARM logo. & Public domain \\
+    \href{http://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png}{\includegraphics[height=1cm]{images/Tux.png}} & Tux. & Explicit permission to use \\
+    \href{http://oshwlogo.com/logos/ohw-logo.png}{\includegraphics[height=1cm]{images/ohw-logo.png}} & OSHW logo. & Public domain \\    
   \end{tabularx}
 \end{frame}
 
